@@ -1,10 +1,10 @@
 ---
 galaxy_info:
-  role_name: user_setup
-  namespace: virtuos
+  role_name: authorized_keys_setup
+  namespace: uos_rz
   author: Lars Kiesow
-  description: Manage users on Linux servers
-  company: virtUOS
+  description: Manage ssh authorized keys
+  company: Osnabrück University
   license: BSD-3-Clause
   min_ansible_version: "2.10"
   platforms:

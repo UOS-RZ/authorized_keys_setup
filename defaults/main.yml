@@ -1,8 +1,4 @@
 ---
-# SSH key source
-# Options are `gitlab` or `ldap`
-key_source: gitlab
-
 # The list of admin user names to add on every machine.
 # The list is flattened automatically to allow for something like:
 # admins:
@@ -10,6 +6,5 @@ key_source: gitlab
 #   - additional_admin
 admins: []
 
-# If users not listed as admins should be deleted.
-# The script uses home directories to identify existing users.
-delete_users: true
+# The user to set up
+secure_sshd_user: root

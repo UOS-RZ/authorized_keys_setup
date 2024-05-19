@@ -2,7 +2,7 @@
 
 > ‼️  This role is made specifically for Osnabrück University.
 
-This role creates user accounts and adds SSH keys.
+This role sets up SSH keys.
 
 ## Dependencies
 
@@ -24,7 +24,7 @@ Just add the role to your playbook and specify your template:
 
 In your `requirements.yml`:
 ```yaml
-- src: https://github.com/virtUOS/user_setup.git
+- src: https://github.com/UOS-RZ/authorized_keys_setup.git
   scm: git
   version: main
 ```
@@ -34,17 +34,11 @@ An example playbook to create two admin unsers and detele all other users:
 - hosts: all
   become: true
   roles:
-    - role: user_setup
-      admins: [lolek, bolek]
-      delete_users: true
+    - role: authorized_keys_setup
+      admins:
+        - lolek
+        - bolek
 ```
-
-
-## Deleting Users
-
-If `delete_users` is det to `true` (default), the role will try to delete all users not in `admins`.
-Users are identified by the directories present in `/home`.
-Users with no home directory or a home directory somewhere else are not touched by this role.
 
 
 ## License
