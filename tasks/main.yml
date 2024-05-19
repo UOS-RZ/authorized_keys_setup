@@ -4,6 +4,7 @@
     that:
       - admins is truthy
 
+# yamllint disable rule:line-length
 - name: Map users to keys
   ansible.builtin.set_fact:
     ssh_keys: |
@@ -11,6 +12,7 @@
       {{ lookup('ansible.builtin.url', 'https://gitlab.uni-osnabrueck.de/virtuos/digitale-dienste/ssh-keys/-/raw/main/' + admin + '.pub', split_lines=False) }}
       {% endfor %}
   delegate_to: 127.0.0.1
+# yamllint enable rule:line-length
 
 - name: Set up admin authorized keys
   ansible.posix.authorized_key:
